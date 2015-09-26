@@ -82,15 +82,21 @@ namespace VocationPlugin {
             }
         }
         
+        internal static string INFO_STAT_ATTACK {
+            get {
+                return ResourceManager.GetString("INFO_STAT_ATTACK", resourceCulture);
+            }
+        }
+        
         internal static string INFO_STAT_LEVEL {
             get {
                 return ResourceManager.GetString("INFO_STAT_LEVEL", resourceCulture);
             }
         }
         
-        internal static string HELP_CMD_STATS {
+        internal static string INFO_LEVELUP_ATTACK {
             get {
-                return ResourceManager.GetString("HELP_CMD_STATS", resourceCulture);
+                return ResourceManager.GetString("INFO_LEVELUP_ATTACK", resourceCulture);
             }
         }
         
@@ -100,15 +106,15 @@ namespace VocationPlugin {
             }
         }
         
-        internal static string ERR_UNKNOWN_VOCATION {
+        internal static string HELP_CMD_STATS {
             get {
-                return ResourceManager.GetString("ERR_UNKNOWN_VOCATION", resourceCulture);
+                return ResourceManager.GetString("HELP_CMD_STATS", resourceCulture);
             }
         }
         
-        internal static string INFO_LEVELUP_SKILL {
+        internal static string ERR_UNKNOWN_VOCATION {
             get {
-                return ResourceManager.GetString("INFO_LEVELUP_SKILL", resourceCulture);
+                return ResourceManager.GetString("ERR_UNKNOWN_VOCATION", resourceCulture);
             }
         }
         
@@ -121,12 +127,6 @@ namespace VocationPlugin {
         internal static string ERR_NOT_LOGGED_IN {
             get {
                 return ResourceManager.GetString("ERR_NOT_LOGGED_IN", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_STAT_SKILL {
-            get {
-                return ResourceManager.GetString("INFO_STAT_SKILL", resourceCulture);
             }
         }
         

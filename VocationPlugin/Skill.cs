@@ -13,13 +13,13 @@ using System.Diagnostics.Contracts;
 
 namespace VocationPlugin
 {
-    public class Skill
+    public class Attack
     {
         public int XP = 0;
         public int Level;
-        public readonly SkillType Type;
+        public readonly AttackType Type;
 
-        public Skill(SkillType type, int level)
+        public Attack(AttackType type, int level)
         {
             Contract.Requires(level > 0);
             Contract.Requires(level <= int.MaxValue);
@@ -28,14 +28,14 @@ namespace VocationPlugin
             Type = type;
         }
 
-        public int getSkillLevelXp(float skillMultiplier,  XpFormat fmt)
+        public int getAttackLevelXp(float attackMultiplier,  XpFormat fmt)
         {
-            Contract.Requires(skillMultiplier > 0);
+            Contract.Requires(attackMultiplier > 0);
             Contract.Ensures(Contract.Result<int>() > -1);
 
             if (fmt == XpFormat.Percent)
             {
-                var totalXp = Convert.ToInt32(Math.Round(10 * Math.Pow(skillMultiplier, Level), 0, MidpointRounding.AwayFromZero));
+                var totalXp = Convert.ToInt32(Math.Round(10 * Math.Pow(attackMultiplier, Level), 0, MidpointRounding.AwayFromZero));
                 var remainingXp = totalXp - XP;
                 return remainingXp / totalXp * 100;
             }

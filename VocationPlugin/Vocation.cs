@@ -17,7 +17,7 @@ using TShockAPI;
 namespace VocationPlugin
 {
     public enum XpFormat { Integer, Percent }
-    public enum SkillType { Melee, Ranged, Magic, Summon, Consumable }
+    public enum AttackType { Melee, Ranged, Magic, Summon, Consumable }
 
     public class Vocation
     {
@@ -48,16 +48,16 @@ namespace VocationPlugin
             }
         }
 
-        public Skill melee;
-        public Skill magic;
-        public Skill ranged;
+        public Attack melee;
+        public Attack magic;
+        public Attack ranged;
 
         public long RemainingXp { get { return getLevelXp(Level + 1) - XP; } }
         public long RemainingXpPercent { get { return RemainingXp / getLevelXp(Level + 1) * 100; } }
 
-        public virtual float MagicSkillMultiplier { get { return 3f; } }
-        public virtual float MeleeSkillMultiplier { get { return 2f; } }
-        public virtual float RangedSkillMultiplier { get { return 2f; } }
+        public virtual float MagicAttackMultiplier { get { return 3f; } }
+        public virtual float MeleeAttackMultiplier { get { return 2f; } }
+        public virtual float RangedAttackMultiplier { get { return 2f; } }
 
         public Vocation(string playerName)
         {
@@ -116,11 +116,11 @@ namespace VocationPlugin
                 melee.XP++;
                 bonusdmg += melee.Level;
 
-                if (melee.XP >= melee.getSkillLevelXp(MeleeSkillMultiplier, XpFormat.Integer))
+                if (melee.XP >= melee.getAttackLevelXp(MeleeAttackMultiplier, XpFormat.Integer))
                 {
                     melee.XP = 0;
                     melee.Level++;
-                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_SKILL, "melee", melee.Level);
+                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_ATTACK, "melee", melee.Level);
                 }
             }
             else if (player.SelectedItem.magic)
@@ -128,11 +128,11 @@ namespace VocationPlugin
                 magic.XP++;
                 bonusdmg += magic.Level;
 
-                if (magic.XP >= magic.getSkillLevelXp(MagicSkillMultiplier, XpFormat.Integer))
+                if (magic.XP >= magic.getAttackLevelXp(MagicAttackMultiplier, XpFormat.Integer))
                 {
                     magic.XP = 0;
                     magic.Level++;
-                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_SKILL, "magic", magic.Level);
+                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_ATTACK, "magic", magic.Level);
                 }
             }
             else if (player.SelectedItem.ranged)
@@ -140,11 +140,11 @@ namespace VocationPlugin
                 ranged.XP++;
                 bonusdmg += ranged.Level;
 
-                if (ranged.XP >= ranged.getSkillLevelXp(RangedSkillMultiplier, XpFormat.Integer))
+                if (ranged.XP >= ranged.getAttackLevelXp(RangedAttackMultiplier, XpFormat.Integer))
                 {
                     ranged.XP = 0;
                     ranged.Level++;
-                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_SKILL, "ranged", ranged.Level);
+                    player.SendInfoMessage(VocationPlugin.Resources.INFO_LEVELUP_ATTACK, "ranged", ranged.Level);
                 }
             }
 
@@ -160,9 +160,9 @@ namespace VocationPlugin
 
     internal class Warrior : Vocation
     {
-        sealed public override float MagicSkillMultiplier { get { return 3f; } }
-        sealed public override float MeleeSkillMultiplier { get { return 1.1f; } }
-        sealed public override float RangedSkillMultiplier { get { return 1.2f; } }
+        sealed public override float MagicAttackMultiplier { get { return 3f; } }
+        sealed public override float MeleeAttackMultiplier { get { return 1.1f; } }
+        sealed public override float RangedAttackMultiplier { get { return 1.2f; } }
 
         public Warrior(string playerName) : base(playerName)
         {
@@ -171,9 +171,9 @@ namespace VocationPlugin
 
     internal class Paladin : Vocation
     {
-        sealed public override float MagicSkillMultiplier { get { return 1.4f; } }
-        sealed public override float MeleeSkillMultiplier { get { return 1.2f; } }
-        sealed public override float RangedSkillMultiplier { get { return 1.1f; } }
+        sealed public override float MagicAttackMultiplier { get { return 1.4f; } }
+        sealed public override float MeleeAttackMultiplier { get { return 1.2f; } }
+        sealed public override float RangedAttackMultiplier { get { return 1.1f; } }
 
         public Paladin(string playerName) : base(playerName)
         {
@@ -182,9 +182,9 @@ namespace VocationPlugin
 
     internal class Wizard : Vocation
     {
-        sealed public override float MagicSkillMultiplier { get { return 1.1f; } }
-        sealed public override float MeleeSkillMultiplier { get { return 2f; } }
-        sealed public override float RangedSkillMultiplier { get { return 2f; } }
+        sealed public override float MagicAttackMultiplier { get { return 1.1f; } }
+        sealed public override float MeleeAttackMultiplier { get { return 2f; } }
+        sealed public override float RangedAttackMultiplier { get { return 2f; } }
 
         public Wizard(string playerName) : base(playerName)
         {

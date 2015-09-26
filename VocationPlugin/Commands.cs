@@ -62,9 +62,9 @@ namespace VocationPlugin
                     
                 var lines = new List<string> {
                     string.Format(VocationPlugin.Resources.INFO_STAT_LEVEL, character.Level, character.RemainingXp, character.RemainingXpPercent),
-                    string.Format(VocationPlugin.Resources.INFO_STAT_SKILL, "Magic", character.magic.Level, character.magic.getSkillLevelXp(character.MagicSkillMultiplier, XpFormat.Percent)),
-                    string.Format(VocationPlugin.Resources.INFO_STAT_SKILL, "Melee", character.melee.Level, character.melee.getSkillLevelXp(character.MeleeSkillMultiplier, XpFormat.Percent)),
-                    string.Format(VocationPlugin.Resources.INFO_STAT_SKILL, "Ranged", character.ranged.Level, character.ranged.getSkillLevelXp(character.RangedSkillMultiplier, XpFormat.Percent))
+                    string.Format(VocationPlugin.Resources.INFO_STAT_ATTACK, "Magic", character.magic.Level, character.magic.getAttackLevelXp(character.MagicAttackMultiplier, XpFormat.Percent)),
+                    string.Format(VocationPlugin.Resources.INFO_STAT_ATTACK, "Melee", character.melee.Level, character.melee.getAttackLevelXp(character.MeleeAttackMultiplier, XpFormat.Percent)),
+                    string.Format(VocationPlugin.Resources.INFO_STAT_ATTACK, "Ranged", character.ranged.Level, character.ranged.getAttackLevelXp(character.RangedAttackMultiplier, XpFormat.Percent))
                 };
 
                 PaginationTools.SendPage(args.Player, pageNumber, lines, new PaginationTools.Settings {

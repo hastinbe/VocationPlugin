@@ -43,13 +43,13 @@
 	<data name="INFO_LEVELUP">
 		<value>You advanced to level {0}!</value>
 	</data>
-	<data name="INFO_LEVELUP_SKILL">
-		<value>Your {0} fighting skill advanced to level {1}!</value>
+	<data name="INFO_LEVELUP_ATTACK">
+		<value>Your {0} fighting advanced to level {1}!</value>
 	</data>
 	<data name="INFO_STAT_LEVEL">
 		<value>You are currently level {0}, you need {1} ({2:0&#37;}) more EXP until next level</value>
 	</data>
-	<data name="INFO_STAT_SKILL">
+	<data name="INFO_STAT_ATTACK">
 		<value>{0}: {1} ({2:0&#37;})</value>
 	</data>
 
