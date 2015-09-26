@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- Error messages -->
+	<data name="ERR_NOT_CONSOLE_COMMAND">
+		<value>You can&apos;t use this command from console!</value>
+	</data>
+	<data name="ERR_NOT_LOGGED_IN">
+		<value>Please login and try again!</value>
+	</data>
+	<data name="ERR_NO_VOCATION">
+		<value>You don&apos;t have a vocation! Please reconnect!</value>
+	</data>
+	<data name="ERR_SAME_VOCATION">
+		<value>Your vocation is already {0}!</value>
+	</data>
+	<data name="ERR_UNKNOWN_VOCATION">
+		<value>Unknown class!</value>
+	</data>
+	<data name="ERR_SAVING">
+		<value>[Plugin] cClass: save failed!</value>
+	</data>
+		
+	<!-- Info messages -->
+	<data name="INFO_VOCATION_CHANGED">
+		<value>Vocation changed to {0}</value>
+	</data>
+	<data name="INFO_SAVING">
+		<value>[Plugin] Vocation: Saving player...</value>
+	</data>
+	<data name="INFO_LEVELUP">
+		<value>You advanced to level {0}!</value>
+	</data>
+	<data name="INFO_LEVELUP_SKILL">
+		<value>Your {0} fighting skill advanced to level {1}!</value>
+	</data>
+	<data name="INFO_STAT_LEVEL">
+		<value>You are currently level {0}, you need {1} ({2:0&#37;}) more EXP until next level</value>
+	</data>
+	<data name="INFO_STAT_SKILL">
+		<value>{0}: {1} ({2:0&#37;})</value>
+	</data>
+
+	<!--- Command help descriptions -->
+	<data name="HELP_CMD_STATS">
+		<value>Display character stats.</value>
+	</data>
+	<data name="HELP_CMD_CHANGEVOCATION">
+		<value>Change your character vocation.</value>
+	</data>
+
+	<!--- Command usages -->
+	<data name="USAGE_CHANGE_VOCATION">
+		<value>{0}cv &lt;warrior|wizard|paladin&gt; - Changes your vocation</value>
+	</data>
+</root>

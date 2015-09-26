@@ -1,0 +1,13 @@
+; Top-most http://editorconfig.org/ file
+root = true
+
+; Unix-style newlines
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+; 4-column tab indentation
+[*.{cs,sln,csproj,vsmdi}]
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
