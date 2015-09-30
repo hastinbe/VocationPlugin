@@ -21,18 +21,12 @@ namespace VocationPlugin
 
         public Attack(AttackType type, int level)
         {
-            Contract.Requires(level > 0);
-            Contract.Requires(level <= int.MaxValue);
-
             Level = level;
             Type = type;
         }
 
         public int getAttackLevelXp(float attackMultiplier,  XpFormat fmt)
         {
-            Contract.Requires(attackMultiplier > 0);
-            Contract.Ensures(Contract.Result<int>() > -1);
-
             if (fmt == XpFormat.Percent)
             {
                 var totalXp = Convert.ToInt32(Math.Round(10 * Math.Pow(attackMultiplier, Level), 0, MidpointRounding.AwayFromZero));

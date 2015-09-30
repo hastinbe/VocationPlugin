@@ -21,32 +21,9 @@ namespace VocationPlugin
 
     public class Vocation
     {
-        private int _level;
-        private long _xp;
-
-        public readonly string PlayerName;
-        public int Level
-        {
-            get { return _level; }
-            set
-            {
-                Contract.Requires(value > 0);
-                Contract.Requires(value <= int.MaxValue);
-
-                _level = value;
-            }
-        }
-        public long XP
-        {
-            get { return _xp; }
-            set
-            {
-                Contract.Requires(value >= 0);
-                Contract.Requires(value <= long.MaxValue);
-
-                _xp = value;
-            }
-        }
+		public string PlayerName { get; protected set; }
+		public int Level { get; set; }
+		public long XP { get; set; }
 
         public Attack melee;
         public Attack magic;
@@ -61,38 +38,21 @@ namespace VocationPlugin
 
         public Vocation(string playerName)
         {
-            Contract.Requires(playerName != null);
-            Contract.Requires(playerName.Length > 0);
-
             PlayerName = playerName;
         }
 
         public static Int64 getLevelXp(int lvl)
         {
-            Contract.Requires(lvl > 0);
-            Contract.Requires(lvl <= int.MaxValue);
-            Contract.Ensures(Contract.Result<Int64>() > 0);
-
             return Convert.ToInt64((Math.Pow(lvl, 2) + lvl) / 2 * 100 - (lvl * 100));
         }
 
         public static Int64 getDamageXp(long damage)
         {
-            Contract.Requires(damage > 0);
-            Contract.Requires(damage <= long.MaxValue);
-            Contract.Ensures(Contract.Result<Int64>() > -1);
-
             return (damage * 150 / 100) / 2;
         }
             
         public static Vocation getVocation(int index, string cls)
         {
-            Contract.Requires(index >= 0);
-            Contract.Requires(index <= int.MaxValue);
-            Contract.Requires(cls != null);
-            Contract.Requires(cls.Length > 0);
-            Contract.Ensures(Contract.Result<Vocation>() != null);
-
             switch (cls)
             {
                 case "wizard": return Plugin.Config.Wizard[index];
@@ -105,10 +65,6 @@ namespace VocationPlugin
 
         public void InflictDamage(TSPlayer player, NpcStrikeEventArgs args)
         {
-            Contract.Requires(player != null);
-            Contract.Requires(args.Damage <= int.MaxValue);
-            Contract.Ensures(args.Damage <= int.MaxValue);
-
             int bonusdmg = Level / 5;
 
             if (player.SelectedItem.melee)

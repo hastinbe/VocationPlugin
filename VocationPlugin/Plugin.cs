@@ -10,19 +10,26 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics.Contracts;
+using System.IO;
 using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using TShockAPI;
 using TerrariaApi.Server;
+using VocationPlugin.Db;
+using MySql.Data.MySqlClient;
+using Mono.Data.Sqlite;
 
 namespace VocationPlugin
 {
-    [ApiVersion(1, 21)]
+    [ApiVersion(1, 22)]
     public class Plugin : TerrariaPlugin
     {
         internal static Config Config;
+        internal static IDbConnection DB;
+        internal static VocationManager Vocations;
 
         // List of NPCs the character cannot gain experience from
         private static readonly HashSet<int> NoXpTargets = new HashSet<int>
@@ -91,6 +98,34 @@ namespace VocationPlugin
             ServerApi.Hooks.ServerJoin.Register(this, OnJoin);
 
             Commands.InitCommands();
+
+            if (TShock.Config.StorageType.ToLower() == "sqlite")
+            {
+                string sql = Path.Combine(TShock.SavePath, "vocations.sqlite");
+                DB = new SqliteConnection(string.Format("uri=file://{0},Version=3", sql));
+            }
+            else
+            {
+                try
+                {
+                    var hostport = TShock.Config.MySqlHost.Split(':');
+                    DB = new MySqlConnection();
+                    DB.ConnectionString =
+                        String.Format("Server={0}; Port={1}; Database={2}; Uid={3}; Pwd={4};",
+                            hostport[0],
+                            hostport.Length > 1 ? hostport[1] : "3306",
+                            TShock.Config.MySqlDbName,
+                            TShock.Config.MySqlUsername,
+                            TShock.Config.MySqlPassword
+                        );
+                }
+                catch (MySqlException ex)
+                {
+                    ServerApi.LogWriter.PluginWriteLine(this, ex.ToString(), System.Diagnostics.TraceLevel.Error);
+                    throw new Exception("MySql not setup correctly");
+                }
+            }
+            Vocations = new VocationManager(DB);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +160,6 @@ namespace VocationPlugin
 
         public static void OnJoin(JoinEventArgs args)
         {
-            Contract.Requires(args != null);
-            Contract.Requires(args.Who > -1);
-
             var player = TShock.Players[args.Who];
             int index = Config.Warrior.FindIndex(v => v.PlayerName == player.Name);
 
@@ -142,10 +174,6 @@ namespace VocationPlugin
             
         public static void OnDamage(NpcStrikeEventArgs args)
         {
-            Contract.Requires(args != null);
-            Contract.Requires(args.Player != null);
-            Contract.Requires(args.Player.whoAmI > -1);
-
             if (args.Handled)
                 return;
 
@@ -170,10 +198,6 @@ namespace VocationPlugin
             }
 
             character.InflictDamage(player, args);
-        }
-
-        public void OnConfigRead(ConfigFile file)
-        {
         }
     }
 }

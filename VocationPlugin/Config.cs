@@ -53,9 +53,6 @@ namespace VocationPlugin
 
         public static Config Read()
         {
-            Contract.Requires(ConfigPath != null);
-            Contract.Requires(ConfigPath.Length > 0);
-
             return Read(ConfigPath);
         }
 
@@ -66,9 +63,6 @@ namespace VocationPlugin
         /// <returns>Config object</returns>
         public static Config Read(string path)
         {
-            Contract.Requires(path != null);
-            Contract.Requires(path.Length > 0);
-
             Config cf;
 
             if (!File.Exists(path))
@@ -93,9 +87,6 @@ namespace VocationPlugin
         /// <param name="path">string path - Location to put the config file</param>
         public void Write(string path)
         {
-            Contract.Requires(path != null);
-            Contract.Requires(path.Length > 0);
-
             File.WriteAllText(path, JsonConvert.SerializeObject(this, Formatting.Indented));
         }
     }

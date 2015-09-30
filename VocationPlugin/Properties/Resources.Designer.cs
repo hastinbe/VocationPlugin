@@ -46,81 +46,9 @@ namespace VocationPlugin {
             }
         }
         
-        internal static string ERR_NO_VOCATION {
+        internal static string INFO_SAVING {
             get {
-                return ResourceManager.GetString("ERR_NO_VOCATION", resourceCulture);
-            }
-        }
-        
-        internal static string ERR_NOT_CONSOLE_COMMAND {
-            get {
-                return ResourceManager.GetString("ERR_NOT_CONSOLE_COMMAND", resourceCulture);
-            }
-        }
-        
-        internal static string USAGE_CHANGE_VOCATION {
-            get {
-                return ResourceManager.GetString("USAGE_CHANGE_VOCATION", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_LEVELUP {
-            get {
-                return ResourceManager.GetString("INFO_LEVELUP", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_VOCATION_CHANGED {
-            get {
-                return ResourceManager.GetString("INFO_VOCATION_CHANGED", resourceCulture);
-            }
-        }
-        
-        internal static string HELP_CMD_CHANGEVOCATION {
-            get {
-                return ResourceManager.GetString("HELP_CMD_CHANGEVOCATION", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_STAT_ATTACK {
-            get {
-                return ResourceManager.GetString("INFO_STAT_ATTACK", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_STAT_LEVEL {
-            get {
-                return ResourceManager.GetString("INFO_STAT_LEVEL", resourceCulture);
-            }
-        }
-        
-        internal static string INFO_LEVELUP_ATTACK {
-            get {
-                return ResourceManager.GetString("INFO_LEVELUP_ATTACK", resourceCulture);
-            }
-        }
-        
-        internal static string ERR_SAME_VOCATION {
-            get {
-                return ResourceManager.GetString("ERR_SAME_VOCATION", resourceCulture);
-            }
-        }
-        
-        internal static string HELP_CMD_STATS {
-            get {
-                return ResourceManager.GetString("HELP_CMD_STATS", resourceCulture);
-            }
-        }
-        
-        internal static string ERR_UNKNOWN_VOCATION {
-            get {
-                return ResourceManager.GetString("ERR_UNKNOWN_VOCATION", resourceCulture);
-            }
-        }
-        
-        internal static string ERR_SAVING {
-            get {
-                return ResourceManager.GetString("ERR_SAVING", resourceCulture);
+                return ResourceManager.GetString("INFO_SAVING", resourceCulture);
             }
         }
         
@@ -130,9 +58,81 @@ namespace VocationPlugin {
             }
         }
         
-        internal static string INFO_SAVING {
+        internal static string ERR_SAVING {
             get {
-                return ResourceManager.GetString("INFO_SAVING", resourceCulture);
+                return ResourceManager.GetString("ERR_SAVING", resourceCulture);
+            }
+        }
+        
+        internal static string ERR_NOT_CONSOLE_COMMAND {
+            get {
+                return ResourceManager.GetString("ERR_NOT_CONSOLE_COMMAND", resourceCulture);
+            }
+        }
+        
+        internal static string ERR_UNKNOWN_VOCATION {
+            get {
+                return ResourceManager.GetString("ERR_UNKNOWN_VOCATION", resourceCulture);
+            }
+        }
+        
+        internal static string ERR_SAME_VOCATION {
+            get {
+                return ResourceManager.GetString("ERR_SAME_VOCATION", resourceCulture);
+            }
+        }
+        
+        internal static string INFO_LEVELUP_ATTACK {
+            get {
+                return ResourceManager.GetString("INFO_LEVELUP_ATTACK", resourceCulture);
+            }
+        }
+        
+        internal static string INFO_STAT_LEVEL {
+            get {
+                return ResourceManager.GetString("INFO_STAT_LEVEL", resourceCulture);
+            }
+        }
+        
+        internal static string INFO_STAT_ATTACK {
+            get {
+                return ResourceManager.GetString("INFO_STAT_ATTACK", resourceCulture);
+            }
+        }
+        
+        internal static string HELP_CMD_CHANGEVOCATION {
+            get {
+                return ResourceManager.GetString("HELP_CMD_CHANGEVOCATION", resourceCulture);
+            }
+        }
+        
+        internal static string INFO_VOCATION_CHANGED {
+            get {
+                return ResourceManager.GetString("INFO_VOCATION_CHANGED", resourceCulture);
+            }
+        }
+        
+        internal static string INFO_LEVELUP {
+            get {
+                return ResourceManager.GetString("INFO_LEVELUP", resourceCulture);
+            }
+        }
+        
+        internal static string USAGE_CHANGE_VOCATION {
+            get {
+                return ResourceManager.GetString("USAGE_CHANGE_VOCATION", resourceCulture);
+            }
+        }
+        
+        internal static string HELP_CMD_STATS {
+            get {
+                return ResourceManager.GetString("HELP_CMD_STATS", resourceCulture);
+            }
+        }
+        
+        internal static string ERR_NO_VOCATION {
+            get {
+                return ResourceManager.GetString("ERR_NO_VOCATION", resourceCulture);
             }
         }
     }

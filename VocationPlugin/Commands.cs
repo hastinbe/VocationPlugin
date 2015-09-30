@@ -37,9 +37,6 @@ namespace VocationPlugin
 
         public static void Stats(CommandArgs args)
         {
-            Contract.Requires(args != null);
-            Contract.Requires(args.Player != null);
-
             if (!args.Player.IsLoggedIn)
             {
                 args.Player.SendErrorMessage(VocationPlugin.Resources.ERR_NOT_LOGGED_IN);
@@ -79,9 +76,6 @@ namespace VocationPlugin
 
         public static void ChangeVocation(CommandArgs args)
         {
-            Contract.Requires(args != null);
-            Contract.Requires(args.Player != null);
-
             if (!args.Player.IsLoggedIn)
             {
                 args.Player.SendErrorMessage(VocationPlugin.Resources.ERR_NOT_LOGGED_IN);
