@@ -60,14 +60,14 @@
     <Reference Include="MySql.Data">
       <HintPath>References\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="TerrariaServer">
-      <HintPath>References\TerrariaServer.exe</HintPath>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>..\..\TShock\prebuilts\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="TShockAPI">
       <HintPath>References\TShockAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Data.Sqlite">
-      <HintPath>..\..\TShock\prebuilts\Mono.Data.Sqlite.dll</HintPath>
+    <Reference Include="TerrariaServer">
+      <HintPath>References\TerrariaServer.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
