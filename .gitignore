@@ -29,4 +29,15 @@ UpgradeLog.XML
 *.vspscc
 *.vspx
 
-Thumbs.db
+# Enforce LF normalization on Windows
+*.yaml eol=lf
+*.lua eol=lf
+* text=lf
+
+# Custom for Visual Studio
+*.cs     diff=csharp
+*.sln    merge=union
+*.csproj merge=union
+*.vbproj merge=union
+*.fsproj merge=union
+*.dbproj merge=union

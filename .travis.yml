@@ -1,5 +1,15 @@
+# Travis-CI Build for TerrariaAPI-Server
+# see travis-ci.org for details
+
 language: csharp
-solution: ./VocationPlugin/VocationPlugin.csproj
-mono:
-  - latest
-  - 3.10.0
+solution: VocationPlugin.sln
+mono: 4.0.0
+
+# http://docs.travis-ci.com/user/migrating-from-legacy
+sudo: false
+
+# Only watch the development branch and tagged release.
+branches:
+ only:
+   - master
+

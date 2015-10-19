@@ -27,6 +27,7 @@ Global
 		{8F0C0187-3AC1-460A-968B-3F1A8C17438E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = VocationPlugin\VocationPlugin.csproj
 		Policies = $0
 		$0.StandardHeader = $1
 		$1.Text = @#region Copyright & License Information\n/*\n * Copyright 2015 Beau D. Hastings\n * This file is part of VocationPlugin, a plugin for TShock, which is free\n * software. It is made available to you under the terms of the GNU \n * General Public License as published by the Free Software Foundation.\n * For more information, see COPYING.\n */\n#endregion\n
